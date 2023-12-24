@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Document</title>
+
+    <style>
+
+
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&family=Open+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+$neonblue: #001eff;
+$neonlightblue: #4deeea;
+$neonyellow: #ffe700;
+$neongreen: #74ee15;
+
+*,
+::before,
+::after {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	background-color: #101b37;
+	display: grid;
+	place-items: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: "Audiowide", sans-serif;
+	letter-spacing: 0.1em;
+}
+
+h2 {
+	color: white;
+	text-shadow: 0 0 0.5em $neonlightblue, 0 0 1em white;
+	padding: 1em 0 0.5em 0;
+}
+
+figure {
+	display: flex;
+	position: relative;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 1em 0;
+
+	img {
+		object-fit: contain;
+		width: 100%;
+		max-width: 400px;
+		height: auto;
+		border-radius: 0 0.5em 0.5em 0;
+		box-shadow: -0.5em 0.5em 0 $neongreen;
+	}
+
+	figcaption {
+		position: absolute;
+		font-family: "Open Sans", sans-serif;
+		padding: 0.4em;
+		font-size: 0.8rem;
+		color: black;
+		font-weight: bold;
+		background-color: $neonyellow;
+		border-radius: 0.5em;
+		bottom: -1em;
+	}
+}
+
+p {
+	font-family: "Open Sans", sans-serif;
+	line-height: 2em;
+	padding: 0.5em 0;
+}
+
+.main {
+	color: #fff;
+	position: relative;
+	max-width: 800px;
+
+	@media screen and (min-width: 800px) {
+		border-left: 0.1em solid white;
+	}
+}
+
+.head {
+	position: relative;
+	padding: 1.5em;
+	margin-bottom: 1em;
+	/*background: linear-gradient(
+    0deg,
+    rgba(16, 27, 55, 1) 32%,
+    rgba(0, 0, 0, 1) 100%
+  );*/
+}
+
+.headline {
+	position: relative;
+	font-size: 2.5rem;
+	color: white;
+	text-shadow: 0 0 0.5em $neonlightblue, 0 0 1em white;
+	border-top: 0.6rem solid $neonlightblue;
+	border-right: 0.6rem solid $neongreen;
+	border-bottom: 0.6rem solid magenta;
+	border-radius: 0 1rem 1rem 0;
+	padding: 0.8em 0em;
+	text-transform: uppercase;
+
+	&::before {
+		content: "";
+		width: 1.5rem;
+		height: 1.5rem;
+		border-radius: 50%;
+		position: absolute;
+		background-color: $neonlightblue;
+		top: -1.05rem;
+		left: -0.25rem;
+	}
+}
+
+.subhead {
+	position: relative;
+	margin-bottom: 1em;
+	text-shadow: none;
+	color: white;
+	padding: 1em;
+	border-left: 0.6rem solid $neonyellow;
+	font-family: "Open Sans", sans-serif;
+
+	&::after {
+		content: "";
+		width: 1.5rem;
+		height: 1.5rem;
+		border-radius: 50%;
+		position: absolute;
+		background-color: $neonyellow;
+		bottom: -0.35rem;
+		left: -1.05rem;
+	}
+}
+
+.article-meta {
+	display: grid;
+	flex-direction: column;
+}
+
+.author {
+	position: relative;
+	display: flex;
+	align-items: center;
+	padding: 1em;
+	border-left: 0.6rem solid $neonblue;
+
+	&::before {
+		content: "";
+		width: 1.5rem;
+		height: 1.5rem;
+		border-radius: 50%;
+		position: absolute;
+		background-color: $neonblue;
+		top: -0.7rem;
+		left: -1.05rem;
+	}
+
+	&::after {
+		content: "";
+		width: 1.5rem;
+		height: 1.5rem;
+		border-radius: 50%;
+		position: absolute;
+		background-color: $neonblue;
+		bottom: -0.7em;
+		left: -1.05em;
+	}
+
+	&__info {
+		display: flex;
+		flex-direction: column;
+		margin-left: 1em;
+
+		p {
+			padding: 0;
+		}
+	}
+}
+
+.byline {
+	font-weight: bold;
+}
+
+.article-tags {
+	margin-top: 2em;
+	padding: 0;
+
+	span {
+		padding: 0.5em 1em;
+		background-color: black;
+		border-radius: 1em;
+	}
+}
+
+.content {
+	padding: 1em 1.5em;
+	//max-width: 70%;
+	justify-self: center;
+}
+
+aside {
+	position: relative;
+	font-style: italic;
+	color: white;
+	margin: 1.5em 0;
+	padding-left: 1em;
+	border-left: 0.6rem solid $neonlightblue;
+	text-align: left;
+
+	&::before {
+		content: "";
+		width: 1.5rem;
+		height: 1.5rem;
+		border-radius: 50%;
+		position: absolute;
+		background-color: $neonlightblue;
+		top: -0.7rem;
+		left: -1.05rem;
+	}
+
+	&::after {
+		content: "";
+		width: 1.5rem;
+		height: 1.5rem;
+		border-radius: 50%;
+		position: absolute;
+		background-color: $neonlightblue;
+		bottom: -0.7em;
+		left: -1.05em;
+	}
+}
+
+
+
+
+
+
+    </style>
+
+
+
+
+</head>
+
+
+
+<body>
+
+    <div class="main">
+        <div class="head">
+            <h1 class="headline">kripto paralar</h1>
+            <h2 class="subhead">
+                Kripto para birimleri, dijital varlık olarak bilinen ve kriptografi kullanarak güvenliği sağlanan sanal para birimleridir.
+            </h2>
+            <div class="article-meta">
+                <div class="author">
+                    <svg id="author-avatar" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" width="80" height="80">
+                        <title id="avatarTitle">Author Avatar</title>
+                        <desc id="avatarDesc">
+                            A cartoon avatar of a smiling purple square on a blue
+                            background.
+                        </desc>
+                        <mask id="mask__beam" maskUnits="userSpaceOnUse" x="0" y="0" width="36" height="36">
+                            <rect width="36" height="36" rx="72" fill="white"></rect>
+                        </mask>
+                        <g mask="url(#mask__beam)">
+                            <rect width="36" height="36" fill="#0ebeff"></rect>
+                            <rect x="0" y="0" width="36" height="36" transform="translate(6 6) rotate(192 18 18) scale(1)" fill="#754cac" rx="6"></rect>
+                            <g transform="translate(0 2) rotate(-2 18 18)">
+                                <path d="M13,19 a1,0.75 0 0,0 10,0" fill="white"></path>
+                                <rect x="12" y="14" width="1.5" height="2" rx="1" stroke="none" fill="white"></rect>
+                                <rect x="22" y="14" width="1.5" height="2" rx="1" stroke="none" fill="white"></rect>
+                            </g>
+                        </g>
+                    </svg>
+                    <div class="author__info">
+                        <p class="byline">By: Simge , Ayşenur, Safvan, Mete</p>
+                        <p class="dateline"> 2023</p>
+                    </div>
+                </div>
+                <p class="article-tags">
+                    <span class="tag">kripto</span> <span class="tag"></span>
+                    <span class="tag featured"> paralar</span>
+                </p>
+            </div>
+        </div>
+        <div class="content">
+            <p>
+                Kripto para birimlerinin temelini, matematiksel algoritmalara dayalı olarak oluşturulmuş kriptografi teknolojisi oluşturur. Kriptografi, bilgi güvenliği, gizlilik ve kimlik doğrulama gibi konuları ele alan bir alan olarak bilinir. Kripto para birimleri, bu teknolojiyi kullanarak işlemlerin güvenliğini ve güvenilirliğini sağlar.
+            </p>
+            <p>
+                Kripto para birimleri, genellikle blok zinciri adı verilen bir dağıtık defter teknolojisi üzerine inşa edilir. Blok zinciri, tüm işlemlerin kaydedildiği ve doğrulandığı bir veritabanıdır. Her işlem bloğu, önceki bloğun verilerini içeren bir şekilde birbirine bağlıdır. Bu sayede, blok zinciri güvenli, şeffaf ve değiştirilemez bir kayıt tutma mekanizması sunar.
+            </p>
+            <p>
+                Bitcoin (BTC), 2009 yılında Satoshi Nakamoto takma adını kullanan bir kişi veya grup tarafından tanıtılan ilk kripto para birimidir. Bitcoin, diğer geleneksel para birimlerine bağımlı olmadan doğrudan kişiler arasında transfer edilebilir. Bitcoin aynı zamanda diğer kripto para birimlerinin temelini oluşturdu ve birçok alternatif kripto para birimi ortaya çıktı. Litecoin (LTC), Ethereum (ETH), Ripple (XRP), Bitcoin Cash (BCH) ve Cardano (ADA) gibi popüler alternatif kripto para birimleri bulunmaktadır.
+            </p>
+            <p>
+                Kripto para birimleri, sadece bir ödeme aracı olarak kullanılmakla kalmaz, aynı zamanda çeşitli alanlarda da uygulama bulur. Örneğin, Ethereum, akıllı sözleşmelerin ve merkezi olmayan uygulamaların (DApps) geliştirilmesine olanak sağlayan bir platform olarak hizmet verir. Kripto para birimleri ayrıca tokenizasyon, dijital sanat eserleri, oyun içi varlıklar, finansal araçlar ve daha birçok alanda kullanılmaktadır.
+            </p>
+            <p>
+                Kripto para birimlerinin bazı avantajları şunlardır: hızlı ve düşük maliyetli para transferleri, sınırları aşan ödemeler, kolay erişim, finansal özgürlük ve çeşitlilik sağlama imkanı. Bununla birlikte, kripto para birimleri bazı zorluklarla da karşı karşıya kalır. Bunlar arasında fiyat oynaklığı, güvenlik riskleri, düzenleyici belirsizlikler ve benimsenme sürecindeki engeller yer alır.
+            </p>
+    
+            <aside>
+                <p>Quos, ad? Et, iure. Libero dolore atque magni.</p>
+            </aside>
+    
+            <figure>
+                <img src="/image/kriptopara.jpeg" alt="a smiling person in a pink hoodie, standing in front of a bright pink lighted arcade basketball game. " />
+                <figcaption>Photo by Freddy G</figcaption>
+            </figure>
+            <!-- full size image: https://images.unsplash.com/flagged/photo-1556339911-7ef846e7db43-->
+    
+            <p>
+                Kripto para birimlerini saklamak ve işlem yapmak için dijital cüzdanlar ve kripto borsalar kullanılır. Dijital cüzdanlar, kullanıcılara kripto para birimlerini güvenli bir şekilde saklama ve transfer etme imkanı sunar. Kripto borsalar ise kripto para birimlerinin alınıp satılabileceği platformlardır.
+            </p>
+            <p>
+                Animi aut, atque quibusdam similique distinctio enim iure, blanditiis
+                rerum autem illum eum in. Dolorem quasi aspernatur nemo deserunt quo,
+                libero dolore atque magni, ullam nihil corrupti et illo earum?
+            </p>
+            <p>
+                Kripto para birimleri, dünya genelinde farklı regülasyonlara tabi tutulmuştur. Bazı ülkeler kripto para birimlerini kabul ederken, diğerleri düzenlemelerle yaklaşmaktadır. Regülasyonlar, kripto para birimlerinin güvenliği, düzenlenmiş piyasaların oluşturulması ve yasa dışı faaliyetlerin önlenmesi gibi konuları ele alır. Gelecekte, kripto para birimlerinin daha fazla benimsenmesi, ölçeklenebilirlik sorunlarının çözülmesi ve daha geniş bir kullanım alanı bulması beklenmektedir.
+            </p>
+            <p>
+                kripto para birimleri dijital çağın finansal inovasyonlarından biridir. Kripto para birimleri, merkezi otoriteler yerine dağıtık bir yapıya dayanır ve blok zinciri teknolojisiyle desteklenir. Bunlar, ödeme sistemleri, akıllı sözleşmeler, tokenizasyon ve finansal araçlar gibi birçok alanda kullanılır. Ancak, kripto para birimleriyle ilgili zorluklar da vardır ve regülasyonlar konusunda belirsizlikler bulunmaktadır. Kripto para birimlerinin geleceği, teknolojik gelişmeler, benimsenme oranı ve düzenleyici yaklaşımlar gibi faktörlere bağlı olarak şekillenecektir.
+            </p>
+            
+    
+            <h2>Bitcoin &amp; Satoshi Nakamoto</h2>
+    
+            <p>
+                Bitcoin, merkezi bir otoriteye ihtiyaç duymadan çalışır. Geleneksel para birimlerinin aksine, Bitcoin'in yönetimi dağıtık bir ağ olan blok zinciri (blockchain) teknolojisi aracılığıyla gerçekleştirilir. Bu sayede, kullanıcılar arasında doğrudan peer-to-peer (P2P) işlemler gerçekleştirilebilir.
+            </p>
+            <p>
+                Bitcoin'in temelini blok zinciri teknolojisi oluşturur. Blok zinciri, tüm Bitcoin işlemlerinin kaydedildiği ve doğrulandığı bir dağıtık defterdir. İşlemler bloklar halinde gruplandırılır ve ardışık olarak zincir oluştururlar. Bu zincirdeki her işlem, matematiksel olarak doğrulanır ve değiştirilmesi zorlaştırılır.
+            </p>
+            <p>
+                Sınırlı Arz: Bitcoin'in en belirgin özelliklerinden biri, sınırlı arza sahip olmasıdır. Bitcoin'in maksimum arzı 21 milyon adetle sınırlıdır. Bu sayede, Bitcoin'in değeri arz ve talep faktörlerine bağlı olarak belirlenir. Yeni Bitcoin'ler madencilik adı verilen bir süreçle oluşturulur ve zamanla bu ödül miktarı azalır.
+            </p>
+    
+            <figure>
+                <img src="/image/kripto_para_2.jpg" alt="two people playing Guitar Hero Arcade. " />
+                <figcaption>Photo by Cassidy James Blaede</figcaption>
+            </figure>
+            <!-- full size image: https://images.unsplash.com/photo-1536818968680-deeec2e9fd11-->
+    
+            <p>
+                Madencilik: Bitcoin ağındaki işlemlerin doğrulanması ve blok zincirine eklenmesi, madencilik adı verilen bir süreçle gerçekleştirilir. Madenciler, yüksek hesaplama gücü gerektiren matematiksel problemleri çözerek işlem doğrulamasını gerçekleştirir ve yeni Bitcoin'lerin oluşturulmasına katkıda bulunur. Madencilik, hem Bitcoin ağının güvenliğini sağlar hem de yeni Bitcoin'lerin dolaşıma girmesini sağlar.
+            </p>
+            <p>
+                Güvenlik: Bitcoin işlemleri, kriptografi kullanılarak güvence altına alınır. Her işlem, özel bir dijital imza ile doğrulanır ve blok zincirindeki diğer düğütlere yayılır. Bu sayede, işlemlerin bütünlüğü ve güvenliği sağlanır. Bitcoin'in güvenliği, güçlü şifreleme algoritmaları ve dağıtık doğrulama mekanizmalarıyla desteklenir.
+            </p>
+            <p>
+                Anonimlik: Bitcoin işlemleri, kullanıcıların gerçek kimliklerini ifşa etmeden gerçekleştirilebilir. Ancak, Bitcoin işlemleri ve adresler, blok zincirinde açıkça görülebilir. Bu nedenle, Bitcoin anonim olarak değil, pseudo-anonim olarak kabul edilir. Kullanıcılar, gizliliklerini artırmak için çeşitli önlemler alabilir, örneğin farklı adresler kullanarak kimliklerini gizleyebilirler.
+            </p>
+    
+            <h2>Ethereum </h2>
+            <p>
+                2015 yılında Vitalik Buterin tarafından kurulan bir blockchain platformudur. Ethereum, akıllı sözleşmelerin ve merkezi olmayan uygulamaların (DApps) geliştirilmesine olanak sağlayan bir platform olarak tanınır
+            </p>
+            <figure>
+                <img src="/image/ether_2.jpg" alt="a person wearing a bucket hat, sitting on a skee ball machine lane. " />
+                <figcaption>Photo by Nick Jones</figcaption>
+            </figure>
+    
+            <!-- full size image: https://images.unsplash.com/photo-1601637155580-ac6c49428450-->
+    
+            <p>
+                Akıllı Sözleşmeler: Ethereum'un en önemli özelliklerinden biri akıllı sözleşmelerdir. Akıllı sözleşmeler, programlanabilir ve özgün şartlarla çalışan sözleşmelerdir. Bu sözleşmeler, Ethereum platformunda çalışan ve önceden belirlenmiş şartları yerine getiren kod parçalarıdır. Akıllı sözleşmeler, otomatik ve güvenilir bir şekilde varlık transferleri, ödemeler ve diğer işlemleri gerçekleştirebilir.
+            </p>
+            <p>
+                Merkezi Olmayan Uygulamalar (DApps): Ethereum, merkezi olmayan uygulamaların (DApps) geliştirilmesi için bir platform sağlar. DApps, geleneksel merkezi sunuculara ve yönetimlere ihtiyaç duymadan çalışabilen uygulamalardır. Ethereum ağı üzerindeki geliştiriciler, akıllı sözleşmeleri kullanarak çeşitli DApps oluşturabilirler. Bu uygulamalar, finans, oyunlar, sanat, tahmin pazarları ve daha birçok alanda kullanılabilir.
+            </p>
+            <p>
+                Ether (ETH): Ethereum platformunda kullanılan kripto para birimi Ether'dir. Ether, Ethereum ağının işlem ücretlerini ödemek için kullanılır ve akıllı sözleşmelerin çalışmasını sağlar. Aynı zamanda Ether, Ethereum ağı üzerindeki değer transferlerinde kullanılan bir varlık olarak da işlev görür.
+            </p>
+            <p>
+                Büyük Blok Zinciri: Ethereum, bir blok zinciri teknolojisi kullanır. Ancak, Bitcoin'den farklı olarak, Ethereum'un blok zinciri daha fazla işlevselliğe sahiptir ve akıllı sözleşmelerin yürütülmesini mümkün kılar. Ethereum, Proof of Work (PoW) konsensüs algoritmasını kullanarak blok zincirini güvence altına alırken, Ethereum 2.0 olarak bilinen bir geçiş süreciyle Proof of Stake (PoS) konsensüs algoritmasına geçmeyi hedeflemektedir.
+            </p>
+            <p>
+                ERC-20 ve ERC-721: Ethereum ağı, token standardı olarak bilinen ERC-20 ve ERC-721 gibi standartları destekler. ERC-20, Ethereum tabanlı tokenlerin oluşturulması ve yönetilmesi için kullanılan bir standarttır. Bu tokenlar, ICO'lar (Initial Coin Offering) ve diğer token tabanlı projeler için kullanılabilir. ERC-721 ise benzersiz tokenlerin (non-fungible token veya NFT) oluşturulmasını sağlar ve dijital koleksiyonlar, oyun içi varlıklar ve diğer benzersiz varlıkların temsili için kullanılır.
+            </p>
+    
+            <figure>
+                <img src="/image/ether3.jpg" alt="a person in black high-heeled boots sitting on an arcade basketball game. " />
+                <figcaption></figcaption>
+            </figure>
+    
+            <!-- full size image: https://images.unsplash.com/flagged/photo-1556491168-3e6ffa3e26b2-->
+    
+            <p>
+                Geliştirici Topluluğu: Ethereum, geniş bir geliştirici topluluğuna sahiptir. Bu topluluk, Ethereum ekosisteminin büyümesini destekler, yeni projeler geliştirir ve platformun gelişimine katkıda bulunur. Ethereum ağı, açık kaynaklı bir platform olduğu için herkesin geliştirme sürecine katılması ve projeler oluşturması teşvik edilir.
+            </p>
+            <p>
+                Ethereum, blok zinciri teknolojisinin sınırlarını zorlayan ve birçok yenilikçi uygulamanın ortaya çıkmasını sağlayan bir platformdur. Ancak, Ethereum da diğer kripto paralar gibi volatil bir piyasada işlem görmektedir ve riskler içerebilir
+            </p>
+    
+            <figure>
+                <img src="/image/ether4.jpg" alt="a person in a white t-shirt sitting on a wheel of fortune arcade game. " />
+                <figcaption>Photo by Nick Jones</figcaption>
+            </figure>
+    
+            <!-- full size image: https://images.unsplash.com/photo-1604112900927-e4d6d3ce3a2e -->
+    
+            
+            
+            
+    
+            <h2>Ripple</h2>
+    
+            <p>
+                RippleNet: RippleNet, Ripple ağı üzerinde faaliyet gösteren bir küresel ödeme ağıdır. Bu ağ, finansal kurumlar arasında anlık ve düşük maliyetli para transferleri yapılmasını sağlar. RippleNet, bankalar, ödeme hizmet sağlayıcıları ve diğer finansal kuruluşlar arasında güvenilir bir bağlantı sağlamak için kullanılır.
+            </p>
+    
+            <figure>
+                <img src="/image/ripple.jpg" alt="three neon-lit skee ball lanes. " />
+                <figcaption>Photo by Element5 Digital</figcaption>
+            </figure>
+    
+            <!-- full size image: https://images.unsplash.com/photo-1533236897111-3e94666b2edf -->
+    
+            <p>
+                XRP: Ripple ağındaki işlemler için kullanılan kripto para birimi XRP'dir. XRP, bankalar arası ödemelerde köprü para birimi olarak kullanılabilir. RippleNet ağındaki finansal kurumlar, XRP'yi kaynak para birimi olarak kullanarak, hızlı ve düşük maliyetli döviz dönüşümleri gerçekleştirebilirler.
+            </p>
+            <p>
+                Hızlı ve Düşük Maliyetli İşlemler: Ripple, diğer geleneksel ödeme sistemlerine kıyasla daha hızlı ve düşük maliyetli işlemler sunar. RippleNet ağında gerçekleştirilen para transferleri genellikle birkaç saniye içinde tamamlanabilir ve daha uygun maliyetlidir.
+            </p>
+            <p>
+                Merkezi Olmayanlık: Ripple protokolü, merkezi olmayan bir blockchain yapısı sunmaz. Ripple, bir dağıtılmış defter teknolojisi kullanır, ancak ağın işleyişi ve güvenliği Ripple şirketi tarafından sağlanır. Bu nedenle, bazı kripto para toplulukları Ripple'ı merkezi bir yapı olarak değerlendirebilirler.
+            </p>
+            <p>
+                Kuruluş ve İşbirlikleri: Ripple, 2012 yılında Chris Larsen ve Jed McCaleb tarafından kurulmuştur. Ripple Labs adlı şirket, Ripple protokolünün geliştirilmesi ve yaygınlaştırılması üzerinde çalışır. Ripple, birçok büyük finansal kuruluş ve banka ile işbirliği yapmış ve ödeme sistemlerini geliştirmeye yönelik projeler yürütmüştür.
+            </p>
+            <aside>
+                <p>Ripple, bankalar arası ödemelerin hızlı ve ucuz bir şekilde gerçekleştirilmesi amacıyla geliştirilen bir teknolojidir.</p>
+            </aside>
+            <p>
+                
+            </p>
+            <p>
+                
+            </p>
+        </div>
+    </div>
+
+
+
+
+    
+
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+      <script src="kripto.js"></script>
+</body>
+</html>
